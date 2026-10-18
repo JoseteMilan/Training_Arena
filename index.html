@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101d2b">
+  <title>Arena Blaster · Futuristic Combat Training</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <main id="container" aria-label="Escenario 3D"><div id="mira" aria-hidden="true" hidden><span></span></div><div id="cuenta-atras" aria-live="assertive" hidden><span id="numero-cuenta">3</span></div></main>
+  <header class="cabecera">
+    <div class="titulo"><h1>ARENA BLASTER<span>.</span></h1><span class="etiqueta">FUTURISTIC COMBAT TRAINING</span></div>
+    <div class="estado"><span class="nivel-hud">NIVEL <strong id="nivel-actual">1/3</strong> · <span id="nombre-nivel">Training Zone</span></span><span id="contador-cajas" aria-live="polite">7 / 7 CAJAS</span><span class="puntos-hud">PUNTOS <strong id="puntuacion">0</strong></span><span class="reloj" role="timer" aria-label="Tiempo restante"><small>TIEMPO RESTANTE</small><strong id="tiempo">30.0 s</strong></span><div class="audio-control"><button id="audio-hud" type="button" aria-label="Silenciar sonido" title="Silenciar sonido">♪</button><input id="volumen-hud" type="range" min="0" max="100" value="30" aria-label="Volumen durante la partida"></div></div>
+  </header>
+  <div id="partida" class="velo" hidden>
+    <section class="tarjeta" aria-labelledby="titulo-partida" role="dialog" aria-modal="true">
+      <span id="subtitulo-partida" class="etiqueta">FUTURISTIC COMBAT TRAINING</span>
+      <h2 id="titulo-partida">ARENA BLASTER</h2>
+      <p id="detalle-partida"></p>
+      <div id="datos-resultado" class="datos-resultado" hidden><span><small id="etiqueta-dato-1">TIEMPO</small><strong id="dato-1"></strong></span><span><small id="etiqueta-dato-2">PUNTOS</small><strong id="dato-2"></strong></span><span><small id="etiqueta-dato-3">TOTAL</small><strong id="dato-3"></strong></span></div>
+      <div id="info-menu" class="info-menu"><p><strong>3 niveles.</strong> Destruye todas las cajas antes de que termine el tiempo.</p><p>WASD / flechas: moverte · Ratón: mirar · Clic derecho: apuntar · Espacio: disparar.</p><div class="volumen-menu"><button id="activar-audio" class="secundario" type="button">ACTIVAR MÚSICA</button><button id="silenciar-menu" class="secundario" type="button" aria-label="Silenciar sonido">♪</button><label for="volumen-menu">VOLUMEN <output id="valor-volumen">30%</output></label><input id="volumen-menu" type="range" min="0" max="100" value="30"></div></div>
+      <div id="leyenda-cajas" class="leyenda-cajas" aria-label="Resistencia de las cajas">
+        <span><i class="madera"></i>Madera · 1 impacto</span>
+        <span><i class="metal"></i>Metal · 2 impactos</span>
+        <span><i class="blindada"></i>Blindada · 3 impactos</span>
+      </div>
+      <div class="acciones-partida"><button id="comenzar" type="button">EMPEZAR A JUGAR</button><button id="siguiente-nivel" type="button" hidden>SIGUIENTE NIVEL</button><button id="reintentar-nivel" type="button" hidden>REINTENTAR NIVEL</button><button id="volver-menu" class="secundario" type="button" hidden>MENÚ PRINCIPAL</button></div>
+    </section>
+  </div>
+  <div id="pausa" class="velo" hidden>
+    <section class="tarjeta" aria-labelledby="titulo-pausa">
+      <span class="etiqueta">CONTRARRELOJ EN PAUSA</span>
+      <h2 id="titulo-pausa">Seguimos cuando quieras.</h2>
+      <p>La ventana perdió el foco. El reloj está detenido hasta que decidas continuar.</p>
+      <button id="reanudar" type="button">Continuar partida</button>
+    </section>
+  </div>
+  <div id="error" class="velo" hidden><section class="tarjeta"><h2>No se pudo abrir el escenario</h2><p id="mensaje-error"></p></section></div>
+  <script src="lib/three.min_r140.js"></script>
+  <script src="lib/fflate_r140.min.js"></script>
+  <script src="lib/FBXLoader_r140.js"></script>
+  <script src="lib/GLTFLoader_r140.js"></script>
+  <script src="js/escenario.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/juego.js"></script>
+</body>
+</html>
